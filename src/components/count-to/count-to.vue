@@ -109,6 +109,11 @@ export default {
 				this.counter.start()
 			}, this.delay);
 		})
+	},
+	methods: {
+		update(num) {
+			this.counter.update(num)
+		}
 	}
 }
 </script>
