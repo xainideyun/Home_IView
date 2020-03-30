@@ -16,7 +16,7 @@ export default {
 	},
 	data() {
 		return {
-			mes: ''
+			mes: '24'
 		}
 	},
 	methods: {
