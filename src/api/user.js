@@ -25,3 +25,9 @@ export const login = ({
 		}
 	})
 }
+
+export const getUserList = () => {
+	return axios.request({
+		url: '/api/user'
+	})
+}

@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { baseURL } from '@/config'
+import { getToken, setToken } from '@/lib/util'
 
 class HttpRequest {
 	constructor(baseUrl = baseURL) {
@@ -13,6 +14,10 @@ class HttpRequest {
 			headers: {
 				// 请求头
 			}
+		}
+		const token = getToken()
+		if (token) {
+			config.headers['Authorization'] = `Bearer ${token}`
 		}
 		return config
 	}
@@ -35,9 +40,13 @@ class HttpRequest {
 				// 如果请求列表为空，则隐藏加载中
 				// Spin.hide()
 			}
-			const { data, status } = res
-			return { data, status }
+			const { data } = res
+			return data
 		}, err => {
+			if (err.response.status === 401) {
+				setToken('')
+				window.location.reload()
+			}
 			delete this.queue[url]
 			return Promise.reject(err)
 		})
