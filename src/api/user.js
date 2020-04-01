@@ -1,9 +1,27 @@
 import axios from './index'
 
-export const getUserInfo = ({ userId }) => {
+export const getUserInfo = ({
+	userId
+}) => {
 	return axios.request({
-		url: '/user',
+		url: '/api/user',
 		method: 'post',
-		data: { userId }
+		data: {
+			userId
+		}
+	})
+}
+
+export const login = ({
+	username,
+	password
+}) => {
+	return axios.request({
+		url: '/api/token/auth',
+		method: 'get',
+		params: {
+			username,
+			password
+		}
 	})
 }

@@ -10,7 +10,7 @@ const router = new VueRouter({
 	// mode: 'history'
 })
 
-const HAS_LOGIN = true
+const HAS_LOGIN = false
 
 router.beforeEach((to, from, next) => {			// 路由守卫
 	to.meta & setTitle(to.meta.title)

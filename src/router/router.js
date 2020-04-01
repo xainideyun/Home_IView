@@ -74,6 +74,11 @@ export default [
 		component: () => import("@/views/split-pane.vue")
 	},
 	{
+		path: '/menu',
+		name: 'menu',
+		component: () => import("@/views/menu.vue")
+	},
+	{
 		path: '/named_view',		// 命名视图
 		components: {
 			default: () => import('@/views/child.vue'),
