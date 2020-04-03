@@ -79,6 +79,22 @@ export default [
 		component: () => import("@/views/menu.vue")
 	},
 	{
+		path: '/table',
+		name: 'table',
+		component: () => import("@/views/table.vue")
+	},
+	{
+		path: '/layout',
+		name: 'layout',
+		component: () => import("@/views/layout.vue"),
+		children: [
+			{
+				path: 'hehe',
+				component: () => import('@/views/Home.vue')
+			}
+		]
+	},
+	{
 		path: '/named_view',		// 命名视图
 		components: {
 			default: () => import('@/views/child.vue'),
